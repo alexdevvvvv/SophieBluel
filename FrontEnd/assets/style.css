@@ -240,33 +240,40 @@ li:hover {
 .gallery img {
   width: 100%;
 }
-#contact {
+#contact,
+#log-in {
   width: 50%;
   margin: auto;
 }
-#contact > * {
+#contact,
+#log-in > * {
   text-align: center;
 }
-#contact h2 {
+#contact,
+#log-in h2 {
   margin-bottom: 20px;
 }
-#contact form {
+#contact,
+#log-in form {
   text-align: left;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
 }
 
-#contact input {
+#contact,
+#log-in input {
   height: 50px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact,
+#log-in label {
   margin: 2em 0 1em 0;
 }
-#contact textarea {
+#contact,
+#log-in textarea {
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
