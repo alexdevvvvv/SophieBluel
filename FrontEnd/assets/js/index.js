@@ -113,3 +113,62 @@ function applyCategoryFilters() {
     showProjectGallery(); // Afficher tous les projets par défaut
   }
 }
+
+//Condition de l'utilisateur
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginLink = document.getElementById("login-link");
+
+  if (window.sessionStorage.getItem("logged") === "true") {
+    loginLink.textContent = "Logout";
+    loginLink.href = "#";
+    loginLink.addEventListener("click", () => {
+      window.sessionStorage.setItem("logged", "false");
+      location.reload();
+    });
+    displayAdminInterface();
+  } else {
+    console.log("L'utilisateur n'est pas connecté");
+  }
+});
+
+function displayAdminInterface() {
+  // Cache les boutons filtres
+  const filterDiv = document.querySelector(".filters");
+  if (filterDiv) {
+    filterDiv.style.display = "none";
+  }
+
+  // Crée la nouvelle div d'édition
+  const newDiv = document.createElement("div");
+  const iconElement = document.createElement("i");
+  const titleEditionMod = document.createElement("p");
+
+  // Ajoute des classes
+  newDiv.className = "editionMod";
+  iconElement.className = "fa-regular fa-pen-to-square";
+  titleEditionMod.textContent = "Mode édition";
+
+  // Applique des styles directement
+  newDiv.style.backgroundColor = "black";
+  newDiv.style.padding = "20px"; // Ajoute du padding
+  newDiv.style.display = "flex"; // Utilise flexbox pour le layout
+  newDiv.style.alignItems = "center"; // Centre les éléments verticalement
+  newDiv.style.justifyContent = "center"; // Centre les éléments horizontalement
+  newDiv.style.top = "0"; // Positionne la div en haut
+  newDiv.style.left = "0"; // Positionne la div à gauche
+  newDiv.style.width = "100%"; // Définit la largeur à 100%
+  newDiv.style.zIndex = "1000"; // Assure que la div est au-dessus des autres éléments (si nécessaire)
+
+  iconElement.style.color = "white"; // Couleur de l'icône
+  iconElement.style.marginRight = "8px"; // Espace entre l'icône et le texte
+
+  titleEditionMod.style.fontSize = "18px"; // Taille de la police
+  titleEditionMod.style.color = "white"; // Couleur du texte
+  titleEditionMod.style.margin = "0"; // Enlève la marge par défaut
+
+  newDiv.append(iconElement, titleEditionMod);
+
+  // Ajoute la nouvelle div au début de body
+  document.body.insertBefore(newDiv, document.body.firstChild);
+}

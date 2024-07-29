@@ -172,11 +172,21 @@ nav ul {
 nav li {
   padding: 0 10px;
   font-size: 1.2em;
+  cursor: pointer;
 }
-
+nav a {
+  text-decoration: none;
+  cursor: pointer;
+  list-style-type: none;
+  color: black;
+}
+nav a:hover {
+  color: #b1663c;
+}
 li:hover {
   color: #b1663c;
 }
+
 #introduction {
   display: flex;
   align-items: center;
